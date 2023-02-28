@@ -44,17 +44,16 @@ function Center() {
         }).catch((error: any) => console.log("Something went wrong!", error));
     }, [spotifyApi, playlistId]);
 
- 
+    const img:any = session?.user?.image;
+    
     return (
         <div className="text-white flex-grow h-screen overflow-y-scroll scrollbar-hide pb-24">
             <header className="absolute top-5 right-8">
                 <div className="flex items-center bg-black rounded-full p-1 cursor-pointer" onClick={() => signOut()}>
-                    <img
+                    {session?.user && <><img
                         className="rounded-full w-[30px] h-[30px]"
-                        src={session?.user.image || userDefaultImage}
-                        alt="Profile Picture"
-                    />
-                    <h2 className="px-2 text-sm">{session?.user.name}</h2>
+                        src={img || userDefaultImage}
+                        alt="Profile Picture" /><h2 className="px-2 text-sm">{session?.user.name}</h2></>}
                     <ChevronDownIcon className="mr-2 h-4 w-4" />
                 </div>
             </header>

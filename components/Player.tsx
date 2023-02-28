@@ -15,7 +15,7 @@ function Player() {
     const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
     const [volume, setVolume] = useState(50);
 
-    const songInfo = useSongInfo();
+    const songInfo:any = useSongInfo();
 
     const fetchCurrentSong = () => {
         if(!songInfo) {
