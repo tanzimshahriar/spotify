@@ -2,9 +2,10 @@ import { ClockIcon } from "@heroicons/react/outline";
 import { useRecoilValue } from "recoil"
 import { playlistState } from "../atoms/playlistAtom"
 import Song from "./Song";
+import { Key } from "react";
 
 function Songs() {
-    const playlist = useRecoilValue(playlistState);
+    const playlist:any = useRecoilValue(playlistState);
     return (
         <div className="p-3 md:p-8 text-white font-light">
             <div className="grid grid-cols-11 text-gray-400 py-2 items-center text-xs xl:text-sm">
@@ -29,7 +30,7 @@ function Songs() {
             
         </div>
         <hr className="border-gray-800 pb-2 md:pb-3"/>
-            {playlist?.tracks.items.map((track, i) => (
+            {playlist?.tracks?.items.map((track: { track: { id: Key | null | undefined; }; }, i: number) => (
                 <Song key={track. track.id} track={track} order={i + 1} />
             ))}
         </div>
