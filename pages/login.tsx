@@ -15,7 +15,7 @@ const Login: React.FC<Props> = ({ providers }) => {
                 <div key={provider.name}>
                     <button 
                         className="bg-[#18D860] px-5 py-3 rounded-full text-white uppercase hover:text-gray-200"
-                        onClick={() => signIn(provider.id, { callbackUrl: "/"})}
+                        onClick={() => signIn(provider.id)}
                     >Login With {provider.name}  
                     </button>
                 </div>
