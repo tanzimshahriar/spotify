@@ -7,6 +7,7 @@ export async function middleware(req) {
   
     // If token exists continue unless login page then redirect to home
     console.info("token is:", token);
+    console.info("pathname:", pathname);
     if(token){
         if(pathname==="/login") {
             return NextResponse.redirect("/");
@@ -21,7 +22,7 @@ export async function middleware(req) {
     }
 
     // if no token but protected route is requested redirect to login
-    if(!token && pathname !== '/login' ) {
+    if(!token && pathname === '/' ) {
         return NextResponse.redirect("/login");
     }
     
