@@ -6,7 +6,7 @@ export async function middleware(req) {
     const { pathname } = req.nextUrl;
   
     // If token exists continue unless login page then redirect to home
-    console.log("token is:", token);
+    console.info("token is:", token);
     if(token){
         if(pathname==="/login") {
             return NextResponse.redirect("/");
